@@ -21,6 +21,11 @@
 		$pwd = $_POST['password'];
 		$password = md5($pwd);
 		 // $email = $matric = $password = $pwd = '';
+		
+		$query = mysqli_query($conn, "SELECT * FROM `tbluser` WHERE email = '$email' ");
+		if (mysqli_num_rows($query) > 0) {
+			echo "email already in use";
+		}
 		$sql = "INSERT INTO `tbluser` (Email, Matricnumber , password) VALUES ('$email', '$matric', '$password')";
 
 		$result  = mysqli_query($conn, $sql);
@@ -30,6 +35,8 @@
 		}else{
 			die(mysqli_error($conn));
 		}
+
+		
 	}
 
 	
