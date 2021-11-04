@@ -21,9 +21,12 @@
 		<h1 class="text-center mt-4">School clinic registration</h1>
 			<div class="d-flex flex-column justify-content-center align-items-center">
 				<form method="POST">
+					<?php if (isset($error_message)): ?>
+						<div class="alert alert-warning"><?php echo $error_message ?></div>
+					<?php endif ?>
 					<div class="form-group">
 						<label>Email: </label>
-						<input type="text" name="email" class="form-control mb-2" placeholder="Email Address" required="">
+						<input type="email" name="email" class="form-control mb-2" placeholder="Email Address" required="">
 						<label>Matric Number: </label>
 						<input type="text" name="matric-number" class="form-control mb-2" placeholder="N/CS/20/2123">
 						<label>Password</label>
